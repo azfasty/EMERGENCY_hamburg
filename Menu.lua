@@ -25,7 +25,7 @@ uICorner.Parent = mainFrame
 local logo = Instance.new("ImageLabel")
 logo.Size = UDim2.new(0, 100, 0, 100)
 logo.Position = UDim2.new(0.5, -50, 0, 10)
-logo.Image = "https://cdn.discordapp.com/attachments/ID/tonlogo.png" -- remplace par ton CDN
+logo.Image = "https://cdn.discordapp.com/attachments/1362349205041057857/1413627745673412679/PNG_CHEAT.png?ex=68bc9eee&is=68bb4d6e&hm=4a6aec43daf5737ff1cfa2315e969ee0925f5a1b35d9c962c8ad20d283664876&" -- remplace par ton CDN
 logo.BackgroundTransparency = 1
 logo.Parent = mainFrame
 
