@@ -59,6 +59,31 @@ minimizeButton.MouseButton1Click:Connect(function()
     end
 end)
 
+
+local TopBar = sideHeading
+local Draggable, DragMousePosition, FramePosition = false, nil, nil
+
+TopBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        Draggable = true
+        DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+        FramePosition = Vector2.new(shadow.Position.X.Scale, shadow.Position.Y.Scale)
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if Draggable then
+        local NewPosition = FramePosition + ((Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / workspace.CurrentCamera.ViewportSize)
+        shadow.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        Draggable = false
+    end
+end)
+
 -- Toggle menu avec P
 local uis = game:GetService("UserInputService")
 uis.InputBegan:Connect(function(input, processed)
